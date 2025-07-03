@@ -26,6 +26,7 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     background-color: var(--light-color);
+    overflow-x: hidden;
 }
 
 .container {
@@ -37,6 +38,7 @@ body {
 
 section {
     padding: 80px 0;
+    position: relative;
 }
 
 h1, h2, h3, h4 {
@@ -77,6 +79,8 @@ p {
     transition: var(--transition);
     cursor: pointer;
     border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
 }
 
 .btn-primary {
@@ -122,6 +126,13 @@ header {
     width: 100%;
     z-index: 1000;
     padding: 15px 0;
+    transition: all 0.3s ease;
+}
+
+header.sticky {
+    padding: 10px 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
 }
 
 nav {
@@ -150,6 +161,22 @@ nav {
     color: var(--text-color);
     font-weight: 500;
     transition: var(--transition);
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 }
 
 .nav-links a:hover {
@@ -164,17 +191,21 @@ nav {
     display: none;
     font-size: 1.5rem;
     cursor: pointer;
+    color: var(--primary-color);
 }
 
 /* Hero Section */
 .hero {
     padding-top: 120px;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    overflow: hidden;
 }
 
 .hero-content {
     max-width: 600px;
     margin-bottom: 50px;
+    position: relative;
+    z-index: 1;
 }
 
 .hero-content h1 {
@@ -189,8 +220,9 @@ nav {
     color: var(--text-light);
 }
 
-.hero-buttons .btn {
-    margin-right: 15px;
+.hero-buttons {
+    display: flex;
+    gap: 15px;
 }
 
 .hero-image {
@@ -198,37 +230,100 @@ nav {
     justify-content: center;
     gap: 30px;
     margin-top: 50px;
+    position: relative;
+    z-index: 1;
 }
 
+/* Travel Icons */
+.travel-icon {
+    position: absolute;
+    font-size: 2rem;
+    color: rgba(67, 97, 238, 0.2);
+    z-index: 0;
+}
+
+.travel-icon.plane {
+    top: 20%;
+    left: 5%;
+    animation: float 6s ease-in-out infinite;
+}
+
+.travel-icon.suitcase {
+    bottom: 15%;
+    right: 8%;
+    animation: float 5s ease-in-out infinite reverse;
+}
+
+.travel-icon.map {
+    top: 60%;
+    left: 10%;
+    animation: float 7s ease-in-out infinite 2s;
+}
+
+@keyframes float {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(2deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* Enhanced Phone Mockup */
 .phone-mockup {
     position: relative;
-    width: 250px;
-    height: 500px;
-    background: var(--white);
-    border-radius: 40px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-    padding: 15px;
+    width: 280px;
+    perspective: 1000px;
+    margin: 0 auto;
 }
 
-.phone-mockup::before {
-    content: '';
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50%;
-    height: 25px;
-    background: var(--dark-color);
-    border-radius: 15px;
-    z-index: 10;
+.phone-mockup.floating {
+    animation: float 4s ease-in-out infinite;
 }
+
+.phone-mockup.floating.delay-1 {
+    animation-delay: 0.5s;
+}
+
+.phone-frame {
+    position: relative;
+    width: 280px; /* Fixed width */
+    height: 560px; /* Fixed height (2:1 ratio) */
+    background: #f1f3f5; /* Light gray background for "frame" */
+    border-radius: 30px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    overflow: hidden; /* Keeps everything contained */
+    padding: 10px; /* This creates the inner spacing */
+    box-sizing: border-box; /* Includes padding in dimensions */
+}
+
+.phone-mockup:hover .phone-frame {
+    transform: rotateY(-5deg) rotateX(5deg) translateY(-10px);
+}
+
 
 .app-screen {
-    width: 100%;
+    width: 100%; /* Will now respect frame's padding */
     height: 100%;
     object-fit: cover;
-    border-radius: 30px;
+    border-radius: 25px; /* Slightly smaller than frame radius */
+    display: block;
+}
+
+.shadow {
+    position: absolute;
+    bottom: -20px;
+    left: 10%;
+    width: 80%;
+    height: 30px;
+    background: radial-gradient(ellipse at center, 
+        rgba(0,0,0,0.2) 0%, 
+        rgba(0,0,0,0) 80%);
+    filter: blur(12px);
+    z-index: 0;
+}
+
+.phone-mockup:hover .shadow {
+    width: 85%;
+    height: 50px;
+    bottom: -25px;
 }
 
 /* Features Section */
@@ -264,6 +359,13 @@ nav {
     margin: 0 auto 20px;
     color: var(--primary-color);
     font-size: 1.5rem;
+    transition: var(--transition);
+}
+
+.feature-card:hover .feature-icon {
+    background: var(--primary-color);
+    color: var(--white);
+    transform: rotateY(180deg);
 }
 
 /* Solutions Section */
@@ -333,12 +435,6 @@ nav {
     flex: 1;
 }
 
-.solution-image img {
-    width: 100%;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-}
-
 .solution-features {
     list-style: none;
     margin: 20px 0;
@@ -355,123 +451,78 @@ nav {
     margin-right: 10px;
 }
 
-/* Testimonials Section */
-.testimonial-slider {
+/* Solution Buttons */
+.solution-buttons {
     display: flex;
-    gap: 30px;
-    margin-top: 50px;
-    overflow-x: auto;
-    padding-bottom: 20px;
+    gap: 15px;
+    margin-top: 30px;
 }
 
-.testimonial-card {
-    background: var(--white);
+/* Demo Section */
+.demo {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    overflow: hidden;
+}
+
+.laptop-mockup {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f5f5f7;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.laptop-screen {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    display: block;
+}
+
+/* Demo Features */
+.demo-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin: 60px auto;
+    max-width: 900px;
+}
+
+.demo-cta {
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* App Descriptions */
+.app-description {
+    display: none;
+    background: white;
     padding: 30px;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    min-width: 350px;
+    margin-top: 40px;
+    animation: fadeIn 0.5s ease;
 }
 
-.testimonial-text {
-    font-style: italic;
+.app-description h4 {
+    color: var(--primary-color);
     margin-bottom: 20px;
-    color: var(--text-light);
 }
 
-.testimonial-author {
-    display: flex;
-    align-items: center;
-}
-
-.testimonial-author img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 15px;
-}
-
-.testimonial-author h4 {
-    margin-bottom: 5px;
-    font-size: 1rem;
-}
-
-.testimonial-author p {
-    font-size: 0.9rem;
-    color: var(--text-light);
-    margin: 0;
-}
-
-/* Pricing Section */
-.pricing-cards {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 50px;
-    flex-wrap: wrap;
-}
-
-.pricing-card {
-    background: var(--white);
-    padding: 40px 30px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    width: 100%;
-    max-width: 350px;
-    text-align: center;
-    transition: var(--transition);
-    position: relative;
-}
-
-.pricing-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-}
-
-.pricing-card.featured {
-    border: 2px solid var(--primary-color);
-}
-
-.popular-badge {
-    position: absolute;
-    top: -15px;
-    right: 20px;
-    background: var(--primary-color);
-    color: var(--white);
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
-}
-
-.price {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin: 20px 0;
-    color: var(--dark-color);
-}
-
-.price span {
-    font-size: 1rem;
-    font-weight: normal;
-    color: var(--text-light);
-}
-
-.pricing-features {
-    list-style: none;
-    margin: 30px 0;
-}
-
-.pricing-features li {
+.app-description p {
     margin-bottom: 15px;
-    display: flex;
-    align-items: center;
 }
 
-.pricing-features i {
-    color: var(--success-color);
-    margin-right: 10px;
+.close-description {
+    margin-top: 20px;
 }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 
 /* CTA Section */
 .cta {
@@ -581,6 +632,36 @@ footer {
     font-size: 0.9rem;
 }
 
+/* Button Animations */
+.btn:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+.btn:focus:not(:active)::after {
+    animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(20, 20);
+        opacity: 0;
+    }
+}
+
 /* Responsive Styles */
 @media (max-width: 992px) {
     .hero-content {
@@ -589,7 +670,6 @@ footer {
     }
     
     .hero-buttons {
-        display: flex;
         justify-content: center;
     }
     
@@ -630,15 +710,19 @@ footer {
     
     .phone-mockup {
         margin-bottom: 30px;
+        width: 220px;
     }
     
-    .pricing-cards {
+    .phone-frame {
+        height: 440px;
+    }
+    
+    .solution-buttons {
         flex-direction: column;
-        align-items: center;
     }
     
-    .pricing-card {
-        max-width: 100%;
+    .travel-icon {
+        display: none;
     }
     
     .cta-form {

@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HotelPro | Reservation & Management Solutions</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>HotelBuddy | Hotel Management & Booking Solutions</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
@@ -15,7 +16,7 @@
                 <ul class="nav-links">
                     <li><a href="#features">Features</a></li>
                     <li><a href="#solutions">Solutions</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#demo">Demo</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 <div class="cta-buttons">
@@ -29,34 +30,43 @@
         </div>
     </header>
 
-    <section class="hero">
+    <section class="hero" data-parallax="scroll">
         <div class="container">
-            <div class="hero-content">
-                <h1>Revolutionizing Hotel Operations</h1>
-                <p>Two powerful apps in one suite - streamline reservations and manage your property with advanced analytics.</p>
+            <div class="hero-content" data-aos="fade-right">
+                <h1>Your Complete Hotel Management Solution</h1>
+                <p>Two powerful apps designed to streamline your hotel operations and enhance guest experiences.</p>
                 <div class="hero-buttons">
-                    <a href="#" class="btn btn-primary">Try Reservation App</a>
-                    <a href="#" class="btn btn-secondary">Explore Management App</a>
+                    <a href="#solutions" class="btn btn-primary">Explore Solutions</a>
+                    <a href="#demo" class="btn btn-secondary">View Demo</a>
                 </div>
             </div>
-            <div class="hero-image">
-                <div class="phone-mockup">
-                    <img src="guest-app-2.jpg" alt="Reservation App" class="app-screen">
+            <div class="hero-image" data-aos="fade-left">
+                <div class="phone-mockup floating">
+                    <div class="phone-frame">
+                        <img src="guest-app-2.jpg" alt="Guest App" class="app-screen">
+                    </div>
+                    <div class="shadow"></div>
                 </div>
-                <div class="phone-mockup">
-                    <img src="admin-app-1.jpg" alt="Management App" class="app-screen">
+                <div class="phone-mockup floating delay-1">
+                    <div class="phone-frame">
+                        <img src="admin-app-1.jpg" alt="Admin App" class="app-screen">
+                    </div>
+                    <div class="shadow"></div>
                 </div>
             </div>
         </div>
+        <div class="travel-icon plane" data-aos="fade-down-right"><i class="fas fa-plane"></i></div>
+        <div class="travel-icon suitcase" data-aos="fade-up-left"><i class="fas fa-suitcase-rolling"></i></div>
+        <div class="travel-icon map" data-aos="fade-down-left"><i class="fas fa-map-marked-alt"></i></div>
     </section>
 
     <section id="features" class="features">
         <div class="container">
-            <h2>Powerful Features</h2>
-            <p class="section-subtitle">Everything you need to manage and grow your hotel business</p>
+            <h2 data-aos="fade-up">Powerful Features</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Everything you need to manage and grow your hotel business</p>
             
             <div class="features-grid">
-                <div class="feature-card">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="feature-icon">
                         <i class="fas fa-calendar-check"></i>
                     </div>
@@ -64,7 +74,7 @@
                     <p>Seamless booking experience with real-time availability and instant confirmation.</p>
                 </div>
                 
-                <div class="feature-card">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="feature-icon">
                         <i class="fas fa-credit-card"></i>
                     </div>
@@ -72,7 +82,7 @@
                     <p>Multiple payment options with PCI-compliant security and fraud protection.</p>
                 </div>
                 
-                <div class="feature-card">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="feature-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
@@ -80,7 +90,7 @@
                     <p>Comprehensive reports and insights to optimize your hotel's performance.</p>
                 </div>
                 
-                <div class="feature-card">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="feature-icon">
                         <i class="fas fa-tasks"></i>
                     </div>
@@ -88,7 +98,7 @@
                     <p>Real-time control over room inventory, rates, and availability across all channels.</p>
                 </div>
                 
-                <div class="feature-card">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="feature-icon">
                         <i class="fas fa-users"></i>
                     </div>
@@ -96,7 +106,7 @@
                     <p>Assign tasks, track performance, and manage shifts efficiently.</p>
                 </div>
                 
-                <div class="feature-card">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="feature-icon">
                         <i class="fas fa-bell"></i>
                     </div>
@@ -109,20 +119,20 @@
 
     <section id="solutions" class="solutions">
         <div class="container">
-            <h2>Our Solutions</h2>
-            <p class="section-subtitle">Tailored apps for your specific needs</p>
+            <h2 data-aos="fade-up">Our Solutions</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Tailored apps for your specific needs</p>
             
             <div class="solutions-tabs">
                 <div class="tab-buttons">
-                    <button class="tab-btn active" data-tab="reservation">Reservation App</button>
-                    <button class="tab-btn" data-tab="management">Management App</button>
+                    <button class="tab-btn active" data-tab="reservation" data-aos="fade-up" data-aos-delay="200">Guest App</button>
+                    <button class="tab-btn" data-tab="management" data-aos="fade-up" data-aos-delay="300">Admin App</button>
                 </div>
                 
                 <div class="tab-content active" id="reservation">
                     <div class="solution-content">
-                        <div class="solution-text">
-                            <h3>Hotel Reservation System</h3>
-                            <p>A modern booking platform that helps guests easily reserve rooms with secure online payments.</p>
+                        <div class="solution-text" data-aos="fade-right">
+                            <h3>HotelBuddy Guest App</h3>
+                            <p>A modern booking platform that helps guests easily reserve rooms with secure online payments and manage their stays.</p>
                             <ul class="solution-features">
                                 <li><i class="fas fa-check"></i> Real-time availability</li>
                                 <li><i class="fas fa-check"></i> Multi-language support</li>
@@ -130,19 +140,34 @@
                                 <li><i class="fas fa-check"></i> Mobile-friendly interface</li>
                                 <li><i class="fas fa-check"></i> Automated confirmations</li>
                             </ul>
-                            <a href="#" class="btn btn-primary">Learn More</a>
+                            <div class="solution-buttons">
+                                <a href="#" class="btn btn-primary download-btn" data-app="guest">Download Now</a>
+                                <a href="#" class="btn btn-outline learn-more-btn">Learn More</a>
+                            </div>
                         </div>
-                        <div class="solution-image">
-                            <img src="guest-app-3.jpg" alt="Reservation App Features">
+                        <div class="solution-image" data-aos="fade-left">
+                            <div class="phone-mockup">
+                                <div class="phone-frame">
+                                    <img src="guest-app-3.jpg" alt="Guest App Features" class="app-screen">
+                                </div>
+                                <div class="shadow"></div>
+                            </div>
                         </div>
+                    </div>
+                    <div class="app-description" id="reservation-description">
+                        <h4>HotelBuddy Guest App Details</h4>
+                        <p>The HotelBuddy Guest App provides travelers with a seamless booking experience. Guests can browse available rooms, view high-quality photos, check real-time availability, and make instant reservations. The app supports multiple payment methods including credit cards, digital wallets, and mobile payments.</p>
+                        <p>After booking, guests receive automated confirmations and can manage their reservations directly in the app. Features include itinerary management, check-in/out times, special requests, and local area guides. Push notifications keep guests informed about their upcoming stays and special offers.</p>
+                        <p>The app is available in multiple languages and includes accessibility features to accommodate all travelers. With a clean, intuitive interface, guests can complete bookings in just a few taps.</p>
+                        <button class="btn btn-outline close-description">Close</button>
                     </div>
                 </div>
                 
                 <div class="tab-content" id="management">
                     <div class="solution-content">
-                        <div class="solution-text">
-                            <h3>Hotel Management System</h3>
-                            <p>Comprehensive tools to manage your property operations with powerful analytics.</p>
+                        <div class="solution-text" data-aos="fade-right">
+                            <h3>HotelBuddy Admin App</h3>
+                            <p>Comprehensive tools to manage your property operations with powerful analytics and real-time updates.</p>
                             <ul class="solution-features">
                                 <li><i class="fas fa-check"></i> Occupancy analytics</li>
                                 <li><i class="fas fa-check"></i> Revenue reports</li>
@@ -150,77 +175,79 @@
                                 <li><i class="fas fa-check"></i> Expense management</li>
                                 <li><i class="fas fa-check"></i> Custom dashboard</li>
                             </ul>
-                            <a href="#" class="btn btn-primary">Learn More</a>
+                            <div class="solution-buttons">
+                                <a href="#" class="btn btn-primary download-btn" data-app="admin">Download Now</a>
+                                <a href="#" class="btn btn-outline learn-more-btn">Learn More</a>
+                            </div>
                         </div>
-                        <div class="solution-image">
-                            <img src="admin-app-2.jpg" alt="Management App Features">
+                        <div class="solution-image" data-aos="fade-left">
+                            <div class="phone-mockup">
+                                <div class="phone-frame">
+                                    <img src="admin-app-2.jpg" alt="Admin App Features" class="app-screen">
+                                </div>
+                                <div class="shadow"></div>
+                            </div>
                         </div>
+                    </div>
+                    <div class="app-description" id="management-description">
+                        <h4>HotelBuddy Admin App Details</h4>
+                        <p>The HotelBuddy Admin App gives hotel managers complete control over their property operations. The dashboard provides an at-a-glance view of key metrics including occupancy rates, revenue, and guest satisfaction scores. Real-time updates ensure staff always have the latest information.</p>
+                        <p>Powerful analytics tools help identify trends and opportunities. Generate custom reports on demand or schedule automated deliveries. The staff management module simplifies scheduling, task assignment, and performance tracking.</p>
+                        <p>Inventory management features allow for dynamic pricing adjustments based on demand. Integrations with popular channel managers ensure your availability is always up-to-date across all booking platforms. The app also includes tools for managing housekeeping, maintenance, and guest communications.</p>
+                        <button class="btn btn-outline close-description">Close</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-<section id="pricing" class="pricing">
-    <div class="container">
-        <h2>Simple, Transparent Pricing</h2>
-        <p class="section-subtitle">Our app is free to use!</p>
-        
-        <div class="pricing-cards">
-            <div class="pricing-card">
-                <h3>Starter</h3>
-                <div class="price">Free<span>/to use</span></div>
-                <p>For small hotels and B&Bs</p>
-                <ul class="pricing-features">
-                    <li><i class="fas fa-check"></i> Reservation App</li>
-                    <li><i class="fas fa-check"></i> Basic Management Features</li>
-                    <li><i class="fas fa-check"></i> Up to 20 rooms</li>
-                    <li><i class="fas fa-check"></i> Email support</li>
-                </ul>
-                <p>Note: A reservation fee applies.</p>
-                <a href="#" class="btn btn-outline">Get Started</a>
+
+    <section id="demo" class="demo" data-parallax="scroll">
+        <div class="container">
+            <h2 data-aos="fade-up">Web Dashboard Demo</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Manage your hotel from any device with our powerful web interface</p>
+            
+            <div class="laptop-mockup" data-aos="zoom-in">
+    <img src="laptop-design.png" alt="Web Dashboard" class="laptop-screen">
+</div>
+            
+            <div class="demo-features" data-aos="fade-up">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3>Full-Featured Dashboard</h3>
+                    <p>Access all management tools from any computer or tablet with our responsive web interface.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>Real-Time Sync</h3>
+                    <p>Changes made on web instantly update on mobile apps and vice versa.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Cloud Backup</h3>
+                    <p>Your data is securely stored and automatically backed up in the cloud.</p>
+                </div>
             </div>
             
-            <div class="pricing-card featured">
-                <div class="popular-badge">Most Popular</div>
-                <h3>Professional</h3>
-                <div class="price">Free<span>/to use</span></div>
-                <p>For mid-sized hotels</p>
-                <ul class="pricing-features">
-                    <li><i class="fas fa-check"></i> Both Apps (Full Features)</li>
-                    <li><i class="fas fa-check"></i> Advanced Analytics</li>
-                    <li><i class="fas fa-check"></i> Up to 100 rooms</li>
-                    <li><i class="fas fa-check"></i> Priority support</li>
-                    <li><i class="fas fa-check"></i> API Access</li>
-                </ul>
-                <p>Note: A reservation fee applies.</p>
-                <a href="#" class="btn btn-primary">Get Started</a>
-            </div>
-            
-            <div class="pricing-card">
-                <h3>Enterprise</h3>
-                <div class="price">Free<span>/to use</span></div>
-                <p>For hotel chains and large properties</p>
-                <ul class="pricing-features">
-                    <li><i class="fas fa-check"></i> All Professional Features</li>
-                    <li><i class="fas fa-check"></i> Unlimited rooms</li>
-                    <li><i class="fas fa-check"></i> Dedicated account manager</li>
-                    <li><i class="fas fa-check"></i> Custom integrations</li>
-                    <li><i class="fas fa-check"></i> On-premise option</li>
-                </ul>
-                <p>Note: A reservation fee applies.</p>
-                <a href="#" class="btn btn-outline">Contact Sales</a>
+            <div class="demo-cta" data-aos="fade-up">
+                <a href="#" class="btn btn-primary">Request Web Demo</a>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <section id="contact" class="cta">
         <div class="container">
-            <div class="cta-content">
+            <div class="cta-content" data-aos="zoom-in">
                 <h2>Ready to Transform Your Hotel Operations?</h2>
-                <p>Start your free 14-day trial. No credit card required.</p>
                 <form class="cta-form">
-                    <input type="email" placeholder="Enter your email">
+                    <input type="email" placeholder="Enter your email" required>
                     <button type="submit" class="btn btn-primary">Get Started</button>
                 </form>
             </div>
@@ -231,7 +258,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-col">
-                    <h4>HotelPro</h4>
+                    <h4>HotelBuddy</h4>
                     <p>Innovative solutions for modern hoteliers. Streamline operations and boost bookings with our powerful apps.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook"></i></a>
@@ -244,9 +271,9 @@
                 <div class="footer-col">
                     <h4>Products</h4>
                     <ul>
-                        <li><a href="#">Reservation App</a></li>
-                        <li><a href="#">Management App</a></li>
-                        <li><a href="#">API Documentation</a></li>
+                        <li><a href="#">Guest App</a></li>
+                        <li><a href="#">Admin App</a></li>
+                        <li><a href="#">Web Dashboard</a></li>
                         <li><a href="#">Integrations</a></li>
                     </ul>
                 </div>
@@ -273,11 +300,14 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2023 HotelPro. All rights reserved.</p>
+                <p>&copy; 2023 HotelBuddy. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax.js/1.5.0/parallax.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
